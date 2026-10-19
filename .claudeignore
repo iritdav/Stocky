@@ -1,0 +1,4 @@
+FirmApp/node_modules
+FirmApp/dist/
+*.log
+package-lock.jason
