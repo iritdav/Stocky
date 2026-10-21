@@ -10,7 +10,12 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
-    "vue": "rc"
+    "chart.js": "^4.4.7",
+    "firebase": "^11.2.0",
+    "pinia": "^2.3.0",
+    "vue": "rc",
+    "vue-chartjs": "^5.3.2",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.8",

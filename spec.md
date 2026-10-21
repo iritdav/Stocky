@@ -123,7 +123,44 @@ Mobile-first layout: single column, bottom navigation bar (Daily Log / Food Libr
 - BMR/TDEE calculators for suggesting a calorie goal — goal is entered manually.
 - Native mobile apps (this is a mobile-first responsive **web** app only).
 
-## 7. Open questions / assumptions
+## 7. Coding standards & component architecture
+
+### Folder structure
+
+```
+src/
+  assets/            # global CSS, static images
+  components/
+    ui/              # generic, app-agnostic building blocks (Button, Input, Modal, ProgressBar, Card)
+    food/            # feature components for food/meal logging (MealSection, FoodListItem, FoodSearchForm, FoodCreateForm)
+    weight/          # feature components for weight tracking (WeightEntryForm, WeightChart, WeightList)
+  composables/       # reusable reactive logic (useAuth, useDailyLog, useFoodLibrary, useWeightEntries)
+  views/             # one component per route (LoginView, DailyLogView, FoodLibraryView, WeightTrackerView, SettingsView)
+  router/            # vue-router config
+  stores/            # Pinia stores (auth, dailyLog, foodLibrary, weight)
+  services/          # Firebase access (firebase.js init, auth.js, firestore.js per-collection helpers)
+  utils/             # pure helper functions (date formatting, calorie math)
+```
+
+### Component hierarchy & reuse
+
+- **Views are thin.** A `views/*View.vue` composes feature components and wires up composables/stores; it holds no business logic and minimal markup of its own.
+- **Feature components** (`components/food/`, `components/weight/`) own one piece of domain UI (e.g. `MealSection`, `WeightChart`) and may use `ui/` components internally, but never directly call Firestore — they receive data/handlers via props and emits, or call a composable.
+- **UI components** (`components/ui/`) are generic and reusable across features — no knowledge of "food" or "weight" domain concepts. If the same markup/behavior (buttons, modals, form inputs, progress bars, list rows) appears in two or more places, extract it here before duplicating.
+- **Composables own logic, not components.** Firestore reads/writes, derived state (e.g. daily total calories), and cross-component reactive state live in `composables/` or `stores/`, not inside component `<script setup>` blocks, so the same logic can be reused by multiple components/views.
+- **Services are the only layer that touches the Firebase SDK.** Components and composables call `services/*` functions; they never import `firebase/firestore` or `firebase/auth` directly. This keeps Firebase swappable/mockable and keeps query logic in one place.
+- Favor small, single-responsibility components over large ones. If a component's `<template>` needs scrolling to read fully, look for a natural split.
+
+### Vue style conventions
+
+- Use `<script setup>` with the Composition API for all components (matches Vue 3 + Vite scaffold defaults).
+- Component filenames: `PascalCase.vue` (e.g. `MealSection.vue`); composables: `camelCase.js` prefixed with `use` (e.g. `useDailyLog.js`).
+- Props: declare with `defineProps` and explicit types/defaults; avoid mutating props — emit events for parent updates instead.
+- Keep template logic minimal — computed properties and methods over inline expressions beyond simple property access.
+- Use the `@` alias (already configured) for all cross-folder imports instead of relative `../../..` paths.
+- Follow existing Prettier config as-is: no semicolons, single quotes, 100-column width. Run `npm run format` before committing.
+
+## 8. Open questions / assumptions
 
 - **Auth method**: assuming email/password only for v1; Google sign-in could be added later with minimal extra work if wanted.
 - **Weight unit**: spec assumes a single unit (e.g. lb) is fine for v1 rather than a user-selectable lb/kg toggle — confirm if a toggle is needed.

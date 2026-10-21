@@ -1,23 +1,17 @@
 # FirmApp
 
-This template should help get you started developing with Vue 3 in Vite.
+A mobile-first calorie tracking web app. See [`spec.md`](../spec.md) at the repo root for the full product spec and [`CLAUDE.md`](../CLAUDE.md) for coding standards.
 
-## Recommended IDE Setup
+## Firebase setup
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+This app needs a Firebase project with **Authentication** (email/password provider enabled) and **Firestore** turned on.
 
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. Create a project at [Firebase console](https://console.firebase.google.com/).
+2. Enable the Email/Password sign-in provider under Authentication.
+3. Create a Firestore database (production mode).
+4. In Project Settings, add a Web app and copy its config values.
+5. Copy `.env.example` to `.env` and fill in the `VITE_FIREBASE_*` values from step 4.
+6. Set the project id in `.firebaserc` (repo root) if you plan to deploy.
 
 ## Project Setup
 
@@ -36,3 +30,17 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Deploy to Firebase Hosting
+
+From the repo root, after `npm run build`:
+
+```sh
+firebase deploy
+```
+
+(Requires the [Firebase CLI](https://firebase.google.com/docs/cli) and a project id set in `.firebaserc`.)
+
+## Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
