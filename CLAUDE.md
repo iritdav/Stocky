@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Layout
 
-The git root contains a single app, `FirmApp/` (Vue + Vite, freshly scaffolded from the `create-vue` template). Run all npm commands from `FirmApp/`.
+The git root contains a single app, `stckyApp/` (Vue + Vite, freshly scaffolded from the `create-vue` template). Run all npm commands from `stckyApp/`.
 
 ## Commands
 
@@ -14,9 +14,11 @@ npm run dev        # Vite dev server with HMR (includes vite-plugin-vue-devtools
 npm run build      # production build to dist/
 npm run preview    # serve the production build
 npm run format     # prettier --write on src/
+npm run test       # vitest run (unit tests, src/**/*.test.js)
+npm run test:watch # vitest in watch mode
 ```
 
-There is no test runner or linter configured.
+Vitest covers pure logic in `src/utils/`; there is no component-test setup or linter configured yet.
 
 ## Notes
 

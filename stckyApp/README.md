@@ -1,4 +1,4 @@
-# FirmApp
+# stckyApp
 
 A mobile-first calorie tracking web app. See [`spec.md`](../spec.md) at the repo root for the full product spec and [`CLAUDE.md`](../CLAUDE.md) for coding standards.
 

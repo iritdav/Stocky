@@ -24,8 +24,9 @@ export const useAuthStore = defineStore('auth', {
     waitForReady() {
       if (this.ready) return Promise.resolve()
       return new Promise((resolve) => {
-        const unsubscribe = onAuthChange(async (user) => {
-          unsubscribe()
+        let unsubscribe
+        unsubscribe = onAuthChange(async (user) => {
+          unsubscribe?.()
           this.user = user
           this.profile = user ? await getProfile(user.uid) : null
           this.ready = true

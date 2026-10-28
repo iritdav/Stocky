@@ -1,4 +1,4 @@
-# Spec: Calorie Tracker (FirmApp)
+# Spec: Calorie Tracker (stckyApp)
 
 ## 1. Overview
 
@@ -8,12 +8,12 @@ Target platform: responsive web app, designed mobile-first (single column, botto
 
 ## 2. Tech stack
 
-- **Frontend**: Vue 3 (`rc` channel, per the existing `FirmApp/package.json`), Vite, Vue Router, Pinia (or similar) for client-side state.
+- **Frontend**: Vue 3 (`rc` channel, per the existing `stckyApp/package.json`), Vite, Vue Router, Pinia (or similar) for client-side state.
 - **Auth**: Firebase Authentication (email/password as the v1 method).
 - **Database**: Firestore.
 - **Hosting**: Firebase Hosting, serving the Vite production build (`npm run build` → `dist/`).
 
-The existing scaffold conventions in `FirmApp/CLAUDE.md` (no semicolons, single quotes, 100-column Prettier, `@` → `src/` alias) apply once implementation starts; they don't affect this spec.
+The existing scaffold conventions in `stckyApp/CLAUDE.md` (no semicolons, single quotes, 100-column Prettier, `@` → `src/` alias) apply once implementation starts; they don't affect this spec.
 
 ## 3. User flows
 

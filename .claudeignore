@@ -1,4 +1,4 @@
-FirmApp/node_modules
-FirmApp/dist/
+stckyApp/node_modules
+stckyApp/dist/
 *.log
 package-lock.jason
