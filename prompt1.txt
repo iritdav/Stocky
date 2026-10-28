@@ -1,0 +1,12 @@
+"Act in Plan Mode: I want to create a mobile first app like myfitnesspal and I want to track my daily calories intake for lunch/breakfast/dinner/snacks. The flow I am looking for is first a user needs to login and we will use firebase (firestore for database) and firebase auth for authentication. Once they login they can add a new food item or search from existing items. We can store the items at user level so user can always add items they want and can access them to add again when they are tracking for next day. Based no this I want you to create a spec.md file where you write all the specifications or flows that would be needed in website so I can read and make sure before we continue. Feel free to ask me questions that you feel will help in this app development. It will be a website made for mobile first"
+
+adding:
+for each user want to add during onboarding if it is not done yet ,I want to ask for gender, age and weight and how much weight they want to lose/gain per week, and based on the details, I want you to calculate how many calories they can eat per day and show a slide bar. so they can toggle to see how many calories  if they want to lose 0.5 kg/week  or 1 kg etc.
+
+can you ask in addition for height (cm)  and taking it into account also?
+
+
+We can combine weight and move that in setting tag. I do not want to show add food after breakfast and lunch dinner etc.  rather we can display a button to "Log Food" in footer and then if they click we can open a page where they can search (with auto complete) existing items and they should only see their items not other  users items. Once they select a food they want to add then we can show them screen to select option/size and also they can select if its for breakfast/dinner etc. and log it. Also we can make footer take up like 80% of width .in the remaining 20%  we can display a +icon to basicallt "Log Food" that way it is a much clearer app.
+
+Adding: 
+Can you add unit tests in the project for what we have built so far.
