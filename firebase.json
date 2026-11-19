@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "stckyApp/dist",
+    "public": "stocky/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {

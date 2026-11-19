@@ -1,4 +1,4 @@
-stckyApp/node_modules
-stckyApp/dist/
+stocky/node_modules
+stocky/dist/
 *.log
 package-lock.jason

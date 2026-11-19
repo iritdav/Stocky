@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Layout
 
-The git root contains a single app, `stckyApp/` (Vue + Vite, freshly scaffolded from the `create-vue` template). Run all npm commands from `stckyApp/`.
+The git root contains a single app, `stocky/` (Vue + Vite, freshly scaffolded from the `create-vue` template). Run all npm commands from `stocky/`.
 
 ## Commands
 
