@@ -1,11 +1,11 @@
 ---
 name: test-writer
-description: Write Vitest unit tests for stckyApp (utils, Pinia stores, composables). Use when asked to add, update, or improve unit tests for this project.
+description: Write Vitest unit tests for stocky (utils, Pinia stores, composables). Use when asked to add, update, or improve unit tests for this project.
 ---
 
 # Test writer
 
-stckyApp uses Vitest. Test files live alongside the source file they cover, named `*.test.js` (e.g. `src/utils/date.js` → `src/utils/date.test.js`).
+stocky uses Vitest. Test files live alongside the source file they cover, named `*.test.js` (e.g. `src/utils/date.js` → `src/utils/date.test.js`).
 
 There is no component-test setup or linter configured yet — write tests only for pure logic in `src/utils/`, Pinia stores in `src/stores/`, and composables in `src/composables/`. Don't add `.vue` component tests or introduce a new test runner/library.
 
@@ -39,6 +39,6 @@ Not yet present in the codebase — follow the same mocking approach as stores (
 
 ## After writing
 
-1. Run `npx vitest run <path-to-new-test-file>` from `stckyApp/` and fix any failures.
-2. Run `npm run format` from `stckyApp/`.
+1. Run `npx vitest run <path-to-new-test-file>` from `stocky/` and fix any failures.
+2. Run `npm run format` from `stocky/`.
 3. Run the full suite (`npm run test`) to confirm no regressions.
